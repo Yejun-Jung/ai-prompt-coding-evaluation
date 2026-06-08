@@ -35,7 +35,8 @@ CineLog는 내가 본 영화의 평점과 감상평을 기록하고 관리할 �
 ## 🚀 화면 구성 (Screenshots)
 
 [데스크톱 화면]
-<img width="565" height="848" alt="image" src="https://github.com/user-attachments/assets/57bb4357-364d-420b-9b4f-6d89005186a9" />
+<img width="1919" height="944" alt="cinelog_desktop" src="https://github.com/user-attachments/assets/c42ef742-065e-45ba-8445-d1a3925f1916" />
+
 
 [모바일 화면]
 <img width="565" height="848" alt="cinelog_mobile" src="https://github.com/user-attachments/assets/39b27d3d-9da0-46ee-98fb-40f679c45b0d" />
