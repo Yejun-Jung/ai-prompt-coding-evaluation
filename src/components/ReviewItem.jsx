@@ -7,14 +7,16 @@ const ReviewItem = ({ review, onEdit, onDelete }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const formatDate = (dateString) => {
+    if (!dateString) return '';
     const date = new Date(dateString);
-    return date.toLocaleDateString('ko-KR', {
+    if (isNaN(date.getTime())) return dateString;
+    return new Intl.DateTimeFormat('ko-KR', {
       year: 'numeric',
-      month: 'short',
+      month: 'long',
       day: 'numeric',
       hour: '2-digit',
-      minute: '2-digit',
-    });
+      minute: '2-digit'
+    }).format(date);
   };
 
   const formatWatchedDate = (dateStr) => {
@@ -27,14 +29,18 @@ const ReviewItem = ({ review, onEdit, onDelete }) => {
     });
   };
 
-  const isLong = review.review.length > CLAMP_LIMIT;
-  const displayedReview =
-    !isExpanded && isLong
+  const toggleExpand = () => setIsExpanded(!isExpanded);
+
+  const isLong = review.review && review.review.length > CLAMP_LIMIT;
+  const displayedReview = isLong && !isExpanded 
       ? review.review.slice(0, CLAMP_LIMIT) + '...'
       : review.review;
 
   return (
-    <div className="review-item">
+    <div 
+      className="review-item"
+      id={`review-${review.id}`}
+    >
       <h3 className="review-title">{review.title}</h3>
 
       <div className="review-meta">
@@ -61,7 +67,7 @@ const ReviewItem = ({ review, onEdit, onDelete }) => {
       <p className="review-registered">등록: {formatDate(review.date)}</p>
 
       <div className="review-actions">
-        <button onClick={() => onEdit(review)} className="btn btn-edit">수정</button>
+        <button onClick={(e) => onEdit(review, e.currentTarget.closest('.review-item').getBoundingClientRect())} className="btn btn-edit">수정</button>
         <button onClick={() => onDelete(review.id)} className="btn btn-danger">삭제</button>
       </div>
     </div>
