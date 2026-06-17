@@ -678,7 +678,7 @@ body {
 .masterpiece-badge {
   position: absolute;
   top: -12px;
-  left: -12px;
+  right: -12px;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -692,7 +692,7 @@ body {
   border-radius: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 215, 0, 0.15);
   backdrop-filter: blur(8px);
-  transform: rotate(-3deg);
+  transform: rotate(3deg);
   letter-spacing: 0.5px;
 }
 
